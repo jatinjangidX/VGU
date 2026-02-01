@@ -1,0 +1,51 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int row = 1, space = n-1, digit = 1, space1 = -1, val = 1;
+        while(row<=n){
+            int i = 1;
+            while(i<=space){
+                System.out.print("  ");
+                i++;
+            }
+            if(row == 1 || row == n){
+                System.out.print("1 ");
+            } else {
+            int j = 1;
+            while(j<=digit){
+                System.out.print(val+" ");
+                val--;
+                j++;
+            }
+            int k = 1;
+            while(k<=space1){
+                System.out.print("  ");
+                k++;
+            }
+            int l = 1;
+            while(l<=digit){
+                val++;
+                System.out.print(val+" ");
+                l++;
+            }
+            }
+            
+            row++;
+            if(row<=n/2+1){
+                space-=2;
+                digit++;
+                val++;
+                space1+=2;
+            } else {
+                space+=2;
+                digit--;
+                val--;
+                space1-=2;
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
